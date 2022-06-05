@@ -1,0 +1,26 @@
+
+Vagrant.configure("2") do |config|
+
+  # Indica o box que será usado:
+  config.vm.box = "alvistack/ubuntu-22.04"
+
+  # Port forwarding
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+
+  # PRIVATE NETWORK
+  # Define um IP em BRIDGE para a máquina:
+  # ip: <ip> -> Define IP estático
+  # type: "dhcp" -> IP dinâmico
+  ### config.vm.network "private_network", type: "dhcp"
+
+  # PUBLIC NETWORK
+  config.vm.network "public_network"
+
+  # Shell Provisioner -> Executa comandos de forma automatizada
+  config.vm.provision "shell", inline: "cat /configs/idUbuntu.pub >> .ssh/authorized_keys"
+
+  # Synced Folder -> Torna pastas compartilhaveis 
+  config.vm.synced_folder "./configs", "/configs"
+  config.vm.synced_folder ".", "/vagrant", disable: true
+
+end

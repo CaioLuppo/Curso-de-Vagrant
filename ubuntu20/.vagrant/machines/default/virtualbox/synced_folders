@@ -1,0 +1,1 @@
+{"virtualbox":{"/configs":{"guestpath":"/configs","hostpath":"C:/Users/caiol/OneDrive/3. Prog/Alura/Vagrant/ambienteDev/ubuntu20/configs","disabled":false,"__vagrantfile":true},"/vagrant":{"disable":true,"guestpath":"/vagrant","hostpath":"C:/Users/caiol/OneDrive/3. Prog/Alura/Vagrant/ambienteDev/ubuntu20","disabled":false,"__vagrantfile":true}}}
