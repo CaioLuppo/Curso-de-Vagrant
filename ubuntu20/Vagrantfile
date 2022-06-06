@@ -2,7 +2,7 @@
 Vagrant.configure("2") do |config|
 
   # Script em variável
-  $script_mysql = <<- SCRIPT
+  $script_mysql = <<-SCRIPT
     apt-get update && \
     apt-get install mysql-server-5.7 && \
     mysql -e "create user 'phpuser'@'%' identified by 'pass';"
