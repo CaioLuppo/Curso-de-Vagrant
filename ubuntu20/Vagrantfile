@@ -1,6 +1,13 @@
 
 Vagrant.configure("2") do |config|
 
+  # Script em variável
+  $script_mysql = <<- SCRIPT
+    apt-get update && \
+    apt-get install mysql-server-5.7 && \
+    mysql -e "create user 'phpuser'@'%' identified by 'pass';"
+  SCRIPT
+  
   # Indica o box que será usado:
   config.vm.box = "alvistack/ubuntu-22.04"
 
@@ -18,6 +25,7 @@ Vagrant.configure("2") do |config|
 
   # Shell Provisioner -> Executa comandos de forma automatizada
   config.vm.provision "shell", inline: "cat /configs/idUbuntu.pub >> .ssh/authorized_keys"
+  config.vm.provision "shell", inline: $script_mysql
 
   # Synced Folder -> Torna pastas compartilhaveis 
   config.vm.synced_folder "./configs", "/configs"
