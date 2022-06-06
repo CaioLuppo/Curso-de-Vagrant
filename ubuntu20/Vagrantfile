@@ -27,6 +27,10 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: "cat /configs/idUbuntu.pub >> .ssh/authorized_keys"
   config.vm.provision "shell", inline: $script_mysql
 
+  # Seta configuração do MySQL
+  config.vm.provision "shell", inline: "cat /configs/mysqld.cnf > /etc/mysql/mysql.conf.d/mysqld.cnf"
+  config.vm.provision "shell", inline: "service restart mysql"
+
   # Synced Folder -> Torna pastas compartilhaveis 
   config.vm.synced_folder "./configs", "/configs"
   config.vm.synced_folder ".", "/vagrant", disable: true
