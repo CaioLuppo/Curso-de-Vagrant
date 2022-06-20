@@ -9,5 +9,5 @@ package { ['php', 'php-mysql']:
 
 exec { 'run-php':
   require => Package['php'],
-  command => '/usr/bin/php -S localhost:80 &',
+  command => '/usr/bin/php -S 0.0.0.0:8888 -t /vagrant/src &',
 }
