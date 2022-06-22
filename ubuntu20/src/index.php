@@ -2,7 +2,7 @@
     echo "Testando conexão <br><br>";
     
     // Variáveis para a conexão
-    $servidor = "192.168.15.50";
+    $servidor = "192.168.15.72";
     $user = "phpuser";
     $pass = "pass";
 
@@ -11,6 +11,7 @@
 
     // Verifica
     if ($conn -> connect_error){
+        echo "Conexão falhou.";
         die("Conexão falhou: ".$conn->connect_error);
     }
 
